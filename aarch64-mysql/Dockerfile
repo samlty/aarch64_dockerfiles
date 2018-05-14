@@ -11,7 +11,7 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/* && \
     /etc/init.d/mysql stop && \
     rm -rf /var/lib/mysql/*
-
+RUN sed -i "s/bind-address/#bind-address/g" /etc/mysql/my.cnf
 #
 # The init-db scripts or sql command files in this directory will be executed when container created.
 # The details please refer "entrypoint.sh"
